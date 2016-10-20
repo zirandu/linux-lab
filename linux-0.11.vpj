@@ -1,0 +1,523 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="GNU C/C++"
+    WorkingDir="."
+    BuildSystem="vsbuild">
+    <Config
+        Name="Debug"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdlinux-0"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc %xup -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+        <Includes>
+            <Include Dir="/Users/zirandu/A-Linux/Linux-Source/linux-0.11-lab/"/>
+        </Includes>
+    </Config>
+    <Config
+        Name="Release"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdlinux-0"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc %xup -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+        <Includes>
+            <Include Dir="/Users/zirandu/A-Linux/Linux-Source/linux-0.11-lab/"/>
+        </Includes>
+    </Config>
+    <Files>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go">
+            <Folder
+                Name="boot"
+                Filters="">
+                <F
+                    N="boot/*.c"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.c++"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.cc"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.cp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.cpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.cxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.h"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.hh"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.hpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.hxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.inl"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="boot/*.xpm"
+                    Recurse="1"
+                    Excludes=""/>
+                <F N="boot/bootsect.s"/>
+                <F N="boot/head.s"/>
+                <F N="boot/setup.s"/>
+            </Folder>
+            <Folder
+                Name="fs"
+                Filters="">
+                <F N="fs/bitmap.c"/>
+                <F N="fs/block_dev.c"/>
+                <F N="fs/buffer.c"/>
+                <F N="fs/char_dev.c"/>
+                <F N="fs/exec.c"/>
+                <F N="fs/fcntl.c"/>
+                <F N="fs/file_dev.c"/>
+                <F N="fs/file_table.c"/>
+                <F N="fs/inode.c"/>
+                <F N="fs/ioctl.c"/>
+                <F N="fs/namei.c"/>
+                <F N="fs/open.c"/>
+                <F N="fs/pipe.c"/>
+                <F N="fs/read_write.c"/>
+                <F N="fs/readme.md"/>
+                <F N="fs/stat.c"/>
+                <F N="fs/super.c"/>
+                <F N="fs/truncate.c"/>
+            </Folder>
+            <Folder
+                Name="include"
+                Filters="">
+                <F
+                    N="include/*.c"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.c++"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.cc"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.cp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.cpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.cxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.h"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.hh"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.hpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.hxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.inl"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="include/*.xpm"
+                    Recurse="1"
+                    Excludes=""/>
+                <F N="include/readme.md"/>
+            </Folder>
+            <Folder
+                Name="init"
+                Filters="">
+                <F N="init/aa_readme.md"/>
+                <F N="init/main.c"/>
+            </Folder>
+            <Folder
+                Name="kernel"
+                Filters="">
+                <F
+                    N="kernel/*.c"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.c++"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.cc"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.cp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.cpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.cxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.h"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.hh"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.hpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.hxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.inl"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="kernel/*.xpm"
+                    Recurse="1"
+                    Excludes=""/>
+                <F N="kernel/aa_readme.md"/>
+                <F N="kernel/asm.s"/>
+                <F N="kernel/system_call.s"/>
+            </Folder>
+            <Folder
+                Name="lib"
+                Filters="">
+                <F
+                    N="lib/*.c"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.c++"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.cc"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.cp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.cpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.cxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.h"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.hh"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.hpp"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.hxx"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.inl"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/*.xpm"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/h++"
+                    Recurse="1"
+                    Excludes=""/>
+                <F
+                    N="lib/Makefile"
+                    Type="Makefile"/>
+            </Folder>
+            <Folder
+                Name="mm"
+                Filters=""/>
+            <F
+                N="mm/*.c"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.c++"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.cc"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.cp"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.cpp"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.cxx"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.h"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.hh"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.hpp"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.hxx"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.inl"
+                Recurse="1"
+                Excludes=""/>
+            <F
+                N="mm/*.xpm"
+                Recurse="1"
+                Excludes=""/>
+        </Folder>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if"/>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"/>
+        <Folder
+            Name="Other Files"
+            Filters=""/>
+    </Files>
+</Project>
